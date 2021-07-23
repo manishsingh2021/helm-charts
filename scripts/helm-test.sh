@@ -14,7 +14,9 @@ helm template pages
 
 echo "------------------------Start time is--------  $(date +%Y-%m-%dT%H%M%S%z)"
 
-helm upgrade --install "$RELEASE_NAME" pages --debug --timeout 60000ms --wait
+helm install "$RELEASE_NAME" pages --debug --timeout 100s --wait
+
+# helm upgrade --install "$RELEASE_NAME" pages --debug --timeout 60000ms --wait
 
 echo "------------------------End time is--------  $(date +%Y-%m-%dT%H%M%S%z)"
 
