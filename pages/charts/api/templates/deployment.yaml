@@ -13,7 +13,7 @@ spec:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 2
-     {{- if ge .Values.deployment.replicaCount 5 }}
+     {{- if ge .Values.deployment.replicaCount 5.0 }}
       maxUnavailable: 2
      {{- else }}
       maxUnavailable: 0

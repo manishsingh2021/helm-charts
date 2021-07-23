@@ -1,5 +1,8 @@
+dbname: pages
+
 deployment:
   containerPort: 8080
+  replicaCount: 1
 
 secrets:
   SDP: cGFzc3dvcmQ=
@@ -23,14 +26,14 @@ env:
   SPRING_DATASOURCE_URL: jdbc:mysql://pages-mysql/pages?useSSL=false
   SPRING_DATASOURCE_USERNAME: root
   DEBUG: true
-  LOGGING_FILE_NAME: eta-dev/logs/app.log
+  LOGGING_FILE_NAME: alpha/logs/app.log
   LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB: debug
   LOGGING_LEVEL_ROOT: debug
   MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "*"
 
 
 volumeMounts:
-  mount_path: /eta-dev
+  mount_path: /eta
 
 readinessProbe:
   tcpSocket:
@@ -43,6 +46,3 @@ livenessProbe:
     port: 8080
   initialDelaySeconds: 15
   periodSeconds: 30
-mysql_svc_name: mysql
-dbname: pages
-  
