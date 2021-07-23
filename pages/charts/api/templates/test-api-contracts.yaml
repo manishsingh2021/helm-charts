@@ -11,6 +11,7 @@ spec:
   containers:
     - name: postman-test
       image: dellcloud/newman:latest #derived from postman/newman
+      imagePullPolicy: IfNotPresent
       command: ["newman","run", "https://cloud-native-labs.s3.ap-south-1.amazonaws.com/J21/labguide/pages-testsuite.json" ]
       args:
         - --env-var
